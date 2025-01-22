@@ -34,16 +34,16 @@ async function removeMessages(channelId, messagesIdsFilePath, keepLast = true) {
       try {
         messageContent = await channel.messages.fetch(messageId);
         await channel.messages.delete(messageId);
-        console.log(`Message with ID: ${messageId} and content: '${messageContent}' is deleted.`);
+        console.log(`Message with ID: ${messageId} and content: '${messageContent}' is removed.`);
       } catch (err) {
         console.log(`Message removing failed with the error: ${err}`);
       }
     }
 
-    console.log('Messages deleted successfuly.');
+    console.log('Messages removed successfuly.');
     process.exit(0);
   } catch (err) {
-    console.log(`There was an error while executing messages deletion command: ${err}`);
+    console.log(`There was an error while executing messages removing command: ${err}`);
     process.exit(1);
   }
 }
