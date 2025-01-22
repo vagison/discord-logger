@@ -2,6 +2,7 @@
 This utility provides a clear interface for manipulating messages (e.g., sending, removing) on Discord using the discord.js package.
 It can be particularly useful for CI/CD pipelines, cron jobs, or other scenarios where a single script execution is beneficial.
 
+------------------------------------------------------------------------------------------------------------------------------------
 
 To execute available commands, use the following format:
 
@@ -17,6 +18,8 @@ To run all commands, you must include the following two variables in the .env fi
     `DISCORD_BOT_TOKEN`: The bot token to authenticate with Discord.
 
     `DISCORD_CHANNEL_ID`: The ID of the Discord channel where the commands will be executed.
+
+------------------------------------------------------------------------------------------------------------------------------------
 
 Available commands currently include `SEND_MESSAGE` and `REMOVE_MESSAGES`:
 
