@@ -3,7 +3,7 @@ function processMessage(rawMessage) {
 }
 
 function processAppName(rawName) {
-  return rawName.replace(/ /g, '_');
+  return rawName.replace(/\s+/g, '_');
 }
 
 module.exports = { processMessage, processAppName };
