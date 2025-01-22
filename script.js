@@ -1,9 +1,7 @@
-// importing packages
 const path = require('path');
 const envFilePath = process.argv[2];
 require('dotenv').config({ path: envFilePath });
 
-// importing functions
 const commands = require('./commands');
 const { processMessage, processAppName } = require('./utils');
 const { initializeBot } = require('./bot');
@@ -23,7 +21,6 @@ async function execute() {
   const channelId = process.env.DISCORD_CHANNEL_ID;
   await initializeBot();
 
-  // executing the command depending on the shell argument
   if (commandName === 'SEND_MESSAGE') {
     const message = processMessage(process.argv[6]);
     await commands.logMessage(channelId, messagesIdsFilePath, message);

@@ -48,7 +48,6 @@ async function removeMessages(channelId, messagesIdsFilePath, keepLast = true) {
   }
 }
 
-// exporting functions
 module.exports = {
   logMessage,
   removeMessages,
