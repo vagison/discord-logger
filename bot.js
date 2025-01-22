@@ -1,4 +1,5 @@
 const { Client, Intents } = require('discord.js');
+const { constants } = require('./constants');
 
 const bot = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -30,7 +31,7 @@ async function waitForBotReady() {
 
     setTimeout(() => {
       reject('Bot initialization timeout!');
-    }, 30000);
+    }, constants.discordBot.initialization.timeout);
   });
 }
 
