@@ -28,7 +28,8 @@ async function execute() {
     const message = processMessage(process.argv[6]);
     await commands.logMessage(channelId, messagesIdsFilePath, message);
   } else if (commandName === 'REMOVE_MESSAGES') {
-    await commands.removeMessages(channelId, messagesIdsFilePath, false);
+    const keepLastMessage = process.argv[6] === 'true' ? true : false;
+    await commands.removeMessages(channelId, messagesIdsFilePath, keepLastMessage);
   }
 }
 
