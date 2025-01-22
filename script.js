@@ -5,7 +5,7 @@ require('dotenv').config({ path: envFilePath });
 
 // importing functions
 const commands = require('./commands');
-const { processMessage } = require('./utils');
+const { processMessage, processAppName } = require('./utils');
 const { initializeBot } = require('./bot');
 
 async function execute() {
@@ -17,7 +17,7 @@ async function execute() {
     process.exit(1);
   }
 
-  const appName = process.argv[3];
+  const appName = processAppName(process.argv[3]);
   const messagesIdsFileName = `${process.argv[4]}.txt`;
   const messagesIdsFilePath = path.join(__dirname, 'logs', 'messages', appName, messagesIdsFileName);
   const channelId = process.env.DISCORD_CHANNEL_ID;
@@ -25,8 +25,7 @@ async function execute() {
 
   // executing the command depending on the shell argument
   if (commandName === 'SEND_MESSAGE') {
-    const rawMessage = process.argv[6];
-    const message = processMessage(rawMessage);
+    const message = processMessage(process.argv[6]);
     await commands.logMessage(channelId, messagesIdsFilePath, message);
   } else if (commandName === 'REMOVE_MESSAGES') {
     await commands.removeMessages(channelId, messagesIdsFilePath, false);

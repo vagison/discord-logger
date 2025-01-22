@@ -1,7 +1,9 @@
 function processMessage(rawMessage) {
-  const message = rawMessage.replaceAll('\\n', '\n');
-
-  return message;
+  return rawMessage.replaceAll('\\n', '\n');
 }
 
-module.exports = { processMessage };
+function processAppName(rawName) {
+  return rawName.replace(/ /g, '_');
+}
+
+module.exports = { processMessage, processAppName };
